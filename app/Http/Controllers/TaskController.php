@@ -22,8 +22,8 @@ class TaskController extends Controller
             ->select(
                 'tasks.id',
                 'tasks.title',
-                'tasks.description',
-                'tasks.url',
+                'tasks.task_url',
+                'tasks.photo_url',
                 DB::raw('IF(task_achievements.user_id IS NULL, 0, 1) AS status'),
                 'tasks.created_at',
                 'tasks.updated_at'
@@ -71,7 +71,7 @@ class TaskController extends Controller
             return response([
                 'error' => false,
                 'message'=> 'Task saved successfully.'
-            ], 202);
+            ], 201);
         } catch (\Throwable $th) {
             return response([
                 'message'=>$th->getMessage()

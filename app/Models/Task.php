@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $fillable = [
         'title',
-        'description',
-        'url'
+        'task_url',
+        'photo_url'
     ];
 }
